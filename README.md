@@ -7,31 +7,42 @@ Setting up your server:
 sudo su
 apt-get update
 
-//apache
+#apache
 apt-get install apache2
 service apache2 restart
 
 echo "ServerName localhost" | tee /etc/apache2/conf-available/fqdn.conf && a2enconf fqdn
 service apache2 restart
 
-//php
+#php
 apt-get install libapache2-mod-php5
 service apache2 restart
 
-//mysql
+#mysql
 apt-get install mysql-server libapache2-mod-auth-mysql php5-mysql
 
-//phpmyadmin
+#phpmyadmin
 apt-get install phpmyadmin
-vi /etc/apache2/apache2.conf ------->
-  #include phpmyadmin
-  Include /etc/phpmyadmin/apache.conf
 
-php5enmod mcrypt
+php5enmod mcrypt #enable mcrypt module
+a2enmod rewrite  #enable apache rewrite for .htaccess
 service apache2 restart
 
-//phalcon
+#phalcon
 apt-add-repository ppa:phalcon/stable
 apt-get update
 apt-get install php5-phalcon
 ```
+
+Open /etc/apache2/apache2.conf and include the following:
+
+#include phpmyadmin
+Include /etc/phpmyadmin/apache.conf
+
+Open /etc/apache2/sites-available/000-default.conf and include the following:
+
+<Directory /var/www/project1>
+    AllowOverride ALL
+</Directory>
+
+Finally, restart apache.

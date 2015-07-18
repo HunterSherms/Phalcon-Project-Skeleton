@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * https://docs.phalconphp.com/en/latest/reference/controllers.html
+ */
 use Phalcon\Mvc\Controller;
 
 class IndexController extends Controller
@@ -7,6 +9,10 @@ class IndexController extends Controller
 
     public function indexAction()
     {
-        echo "<h1>Hello World!</h1>";
+
+    }
+
+    public function page_not_foundAction(){
+
     }
 }

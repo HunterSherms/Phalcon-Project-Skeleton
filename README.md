@@ -35,14 +35,14 @@ apt-get install php5-phalcon
 ```
 
 Open /etc/apache2/apache2.conf and include the following:
-
+```
 #include phpmyadmin
 Include /etc/phpmyadmin/apache.conf
-
+```
 Open /etc/apache2/sites-available/000-default.conf and include the following:
-
+```
 <Directory /var/www/project1>
     AllowOverride ALL
 </Directory>
-
+```
 Finally, restart apache.

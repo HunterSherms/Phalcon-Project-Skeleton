@@ -4,6 +4,10 @@
  * https://docs.phalconphp.com/en/latest/reference/di.html
  */
 
+use Phalcon\DI\FactoryDefault;
+use Phalcon\Mvc\Url as UrlProvider;
+use Phalcon\Mvc\View;
+
 // Create a DI container
 $di = new FactoryDefault();
 
